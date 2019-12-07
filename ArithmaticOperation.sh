@@ -4,10 +4,17 @@ read -p "Enter The First Value " a
 read -p "Enter The Second Value " b
 read -p "Enter The Third Value " c
 
-echo $((($a+$b)+$c))
+declare -A storeOperations
 
-echo $((($a*$b)+$c))
+result1=$((($a+$b)+$c))
 
-echo $((($c+$a)/$b))
+result2=$((($a*$b)+$c))
 
-echo $((($a%$b)+$c))
+result3=$((($c+$a)/$b))
+
+result4=$((($a%$b)+$c))
+
+storeOprations["Result_1"]=$result1
+storeOprations["Result_2"]=$result2
+storeOprations["Result_3"]=$result3
+storeOprations["Result_4"]=$result4
