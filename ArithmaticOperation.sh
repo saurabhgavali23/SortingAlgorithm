@@ -24,3 +24,19 @@ for result in ${!storeOperations[@]}
 do
 arrayResult[((counter++))]=${storeOperations[$result]}
 done
+
+len=${#arrayResult[@]}
+#Descending Array
+for ((i=0;i<len;i++))
+do
+	for((j=$i+1;j<len;j++))
+	do
+		if [ ${arrayResult[$i]} -lt  ${arrayResult[$j]} ]
+		then
+				temp="${arrayResult[$j]}"
+			 	arrayResult[j]="${arrayResult[$i]}"
+			 	arrayResult[i]=$temp
+		fi
+	done
+done
+
