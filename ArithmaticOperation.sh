@@ -4,8 +4,8 @@ read -p "Enter The First Value " a
 read -p "Enter The Second Value " b
 read -p "Enter The Third Value " c
 
-result=$((($a+$b)+$c))
-echo $result
+echo $((($a+$b)+$c))
 
-result2=$((($a*$b)+$c))
-echo $result2
+echo $((($a*$b)+$c))
+
+echo $((($c+$a)/$b))
