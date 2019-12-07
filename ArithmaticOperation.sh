@@ -9,3 +9,5 @@ echo $((($a+$b)+$c))
 echo $((($a*$b)+$c))
 
 echo $((($c+$a)/$b))
+
+echo $((($a%$b)+$c))
