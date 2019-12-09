@@ -42,17 +42,4 @@ done
 
 #Ascending Array
 
-for ((i=0;i<len;i++))
-do
-	for((j=$i+1;j<len;j++))
-	do
-		if [ ${arrayResult[$i]} -gt  ${arrayResult[$j]} ]
-		then
-				temp=${arrayResult[$j]}
-			 	arrayResult[j]=${arrayResult[$i]}
-			 	arrayResult[i]=$temp
-		fi
-	done
-done
-
-echo ${arrayResult[@]}
+echo $(printf "%d\n" ${arrayResult[@]} | sort -n)
