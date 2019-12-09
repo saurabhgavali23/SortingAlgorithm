@@ -5,7 +5,7 @@ read -p "Enter The Second Value " b
 read -p "Enter The Third Value " c
 
 declare -A storeOperations
-
+counter=0
 result1=$((($a+$b)+$c))
 
 result2=$((($a*$b)+$c))
@@ -14,7 +14,18 @@ result3=$((($c+$a)/$b))
 
 result4=$((($a%$b)+$c))
 
-storeOprations["Result_1"]=$result1
-storeOprations["Result_2"]=$result2
-storeOprations["Result_3"]=$result3
-storeOprations["Result_4"]=$result4
+storeOperations["Result_1"]=$result1
+storeOperations["Result_2"]=$result2
+storeOperations["Result_3"]=$result3
+storeOperations["Result_4"]=$result4
+
+for result in ${!storeOperations[@]}
+do
+	arrayResult[((counter++))]=${storeOperations[$result]}
+done
+
+#Descending Array
+echo $(printf "%s\n" ${arrayResult[@]} | sort -nr)
+
+#Ascending Array
+echo $(printf "%s\n" ${arrayResult[@]} | sort -n)
