@@ -6,7 +6,6 @@ read -p "Enter The Third Value " c
 
 declare -A storeOperations
 counter=0
-
 result1=$((($a+$b)+$c))
 
 result2=$((($a*$b)+$c))
@@ -25,21 +24,9 @@ do
 arrayResult[((counter++))]=${storeOperations[$result]}
 done
 
-len=${#arrayResult[@]}
 #Descending Array
-for ((i=0;i<len;i++))
-do
-	for((j=$i+1;j<len;j++))
-	do
-		if [ ${arrayResult[$i]} -lt  ${arrayResult[$j]} ]
-		then
-				temp=${arrayResult[$j]}
-			 	arrayResult[j]=${arrayResult[$i]}
-			 	arrayResult[i]=$temp
-		fi
-	done
-done
+echo $(printf "%s\n" ${arrayResult[@]} | sort -nr)
 
 #Ascending Array
+echo $(printf "%s\n" ${arrayResult[@]} | sort -n)
 
-echo $(printf "%d\n" ${arrayResult[@]} | sort -n)
