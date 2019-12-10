@@ -1,18 +1,16 @@
 #!/bin/bash -x
+counter=0
 
 read -p "Enter The First Value " a
 read -p "Enter The Second Value " b
 read -p "Enter The Third Value " c
 
 declare -A storeOperations
-counter=0
-result1=$((($a+$b)+$c))
 
-result2=$((($a*$b)+$c))
-
-result3=$((($c+$a)/$b))
-
-result4=$((($a%$b)+$c))
+result1=$(( $a + $b + $c ))
+result2=$(( $a * $b + $c ))
+result3=$(( $c + $a / $b ))
+result4=$(( $a % $b + $c ))
 
 storeOperations["Result_1"]=$result1
 storeOperations["Result_2"]=$result2
@@ -21,7 +19,7 @@ storeOperations["Result_4"]=$result4
 
 for result in ${!storeOperations[@]}
 do
-arrayResult[((counter++))]=${storeOperations[$result]}
+	arrayResult[((counter++))]=${storeOperations[$result]}
 done
 
 #Descending Array
